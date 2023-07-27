@@ -3,9 +3,11 @@
 if( isset( $_GET[ 'Login' ] ) ) {
 	// Get username
 	$user = $_GET[ 'username' ];
+	$user = filter_var($user, FILTER_SANITIZE_STRING);
 
 	// Get password
 	$pass = $_GET[ 'password' ];
+	$pass = filter_var($pass, FILTER_SANITIZE_STRING);
 	$pass = md5( $pass );
 
 	// Check the database
